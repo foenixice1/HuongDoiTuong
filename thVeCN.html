@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vẽ Hình Chữ Nhật</title>
+</head>
+<body>
+<canvas id="myCanvans" width="1000px" height="400px" style="border:1px solid crimson;"></canvas>
+<p id="dodai"></p>
+<script>
+    let res = document.getElementById('dodai') ;
+    function hinhchunhat(dai,rong) {
+        this.dai = dai;
+        this.rong = rong ;
+        this.chuvi = function () {
+            return 2 * ( dai + rong)
+        }
+        this.dientich = function () {
+            return dai * rong
+        }
+    }
+    hinhchunhat.prototype.display = function () {
+        let canvans = document.getElementById('myCanvans') ;
+        let context = canvans.getContext('2d') ;
+        context.rect(40,40,this.dai,this.rong) ;
+        context.stroke() ;
+        res.innerHTML = 'Diện tích hình chữ nhật là :' + this.dientich() + '<br>' + 'Chu vi hình chữ nhật là :' + this.chuvi();
+
+    }
+    function createRec() {
+        let rec = new hinhchunhat(+prompt('Nhập vào chiều dài'),+prompt('Nhập vào chiều rộng')) ;
+        rec.display();
+    }
+    createRec();
+</script>
+</body>
+</html>
