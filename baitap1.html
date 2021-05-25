@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+
+<p id="kqq"></p>
+<p id="kq"></p>
+
+<script>
+    let kq = document.getElementById("kq")
+    let kqq = document.getElementById("kqq")
+    function nhietdo(c) {
+        this.c = c ;
+        this.doiCsangF = function () {
+            kqq.innerHTML = this.c + " độ C = " +  ((1.8 *this.c) + 32) + ' độ F'  ;
+        };
+        this.doicsangk = function () {
+            kq.innerHTML = this.c + ' độ C = ' + ( this.c + 273 ) + ' độ K';
+        };
+    }
+    let nhap = new nhietdo(+prompt('Nhập vào nhiệt độ C :')) ;
+    nhap.doiCsangF();
+    nhap.doicsangk() ;
+</script>
+
+</body>
+</html>
