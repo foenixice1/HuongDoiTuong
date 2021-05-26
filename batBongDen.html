@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>công tắc và bóng đèn</title>
+</head>
+<body>
+<script>
+  let Lamp = function (name) {
+      this.name = name;
+      this.status = false;
+      this.turnOn = function () {
+          if ( this.status) {
+              console.log('Bóng đèn đang sáng')
+          }else {
+              console.log('Đèn đã được bật')
+              this.status = true;
+          }
+      };
+      this.turnOff = function () {
+          if ( this.status) {
+              console.log('Đã tắt bóng đèn')
+              this.status = false ;
+          } else {
+              console.log("Đèn đã được bật")
+          }
+      };
+  };
+  let switcher = function () {
+      this.lamp = {} ;
+      this.conectStatus = false ;
+      this.conectToLamp = function (obj) {
+          this.lamp = obj ;
+          this.status = true;
+      };
+      this.getStatus = function () {
+          if ( this.status) {
+              console.log(this.lamp.name);
+              console.log(this.lamp.status);
+          }
+      };
+      this.turnOff = function () {
+          if ( this.status) {
+              this.lamp.turnOff();
+              this.getStatus();
+          }
+      };
+      this.turnOn = function () {
+          if ( this.status) {
+              this.lamp.turnOn();
+              this.getStatus();
+          }
+      }
+  };
+
+  let sonySwitcher = new switcher();
+  let sonyLamp = new Lamp('SONYVEGAS') ;
+  sonySwitcher.conectToLamp(sonyLamp) ;
+  sonySwitcher.turnOn();
+  sonySwitcher.turnOff();
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
