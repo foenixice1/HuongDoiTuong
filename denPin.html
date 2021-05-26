@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mô tả đèn pin</title>
+</head>
+<body>
+<script>
+ let Barrety = function () {
+   this.setEnergy = function (energy) {
+     this.energy = energy;
+   };
+   this.getEnergy = function () {
+     return this.energy;
+   };
+   this.decreaseEnergy = function () {
+     if ( this.energy > 0) {
+       this.energy-- ;
+     }
+   }
+ };
+let FlashLamp = function () {
+   this.setBarrety = function (barrety) {
+     this.barrety = barrety;
+   };
+   this.getBatteryInfo = function () {
+     return this.barrety.getEnergy();
+   };
+   this.light = function () {
+     if ( this.status) {
+       alert("Lighting");
+     }else {
+       alert(" Not Light");
+     }
+   };
+   this.turnOn = function () {
+     this.status = true ;
+   };
+   this.turnOff = function () {
+     this.status = false ;
+   };
+};
+let barrety = new Barrety();
+barrety.getEnergy(+prompt('Nhập vào năng lượng PIN')) ;
+let flashLamp = new FlashLamp();
+flashLamp.setBarrety(barrety) ;
+ document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+ flashLamp.light();
+
+ document.write("Turn on<br/>")
+ flashLamp.turnOn();
+ flashLamp.light();
+ document.write("Battery info:" + flashLamp.getBatteryInfo() + "<br/>");
+
+ document.write("Turn off<br/>")
+ flashLamp.turnOff();
+ flashLamp.light();
+</script>
+</body>
+</html>
